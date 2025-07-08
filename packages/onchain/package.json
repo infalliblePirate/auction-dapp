@@ -7,6 +7,7 @@
   "author": "infalliblePirate",
   "license": "ISC",
   "devDependencies": {
-    "hardhat": "^2.25.0"
+    "hardhat": "^2.25.0",
+    "@nomicfoundation/hardhat-toolbox": "^6.0.0"
   }
 }
