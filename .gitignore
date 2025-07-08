@@ -6,6 +6,8 @@ node_modules/
 
 # ON CHAIN:
 # --------------
+packages/onchain/.env
+
 # Hardhat files
 packages/onchain/cache
 packages/onchain/artifacts
