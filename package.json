@@ -2,10 +2,10 @@
   "name": "auction-dapp",
   "private": true,
   "workspaces": [
-    "packages/**"
+    "packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:backend": "node packages/backend/app.js"
   },
   "author": "infalliblePirate",
   "license": "ISC",

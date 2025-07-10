@@ -8,5 +8,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.25.0"
   }
 }
