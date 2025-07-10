@@ -20,6 +20,7 @@ packages/onchain/typechain-types
 packages/onchain/coverage
 packages/onchain/coverage.json
 
-# Hardhat Ignition default folder for deployments against a local node
+# Hardhat Ignition folders for deployments
 packages/onchain/ignition/deployments/chain-31337
+packages/onchain/ignition/deployments/chain-97
 # --------------

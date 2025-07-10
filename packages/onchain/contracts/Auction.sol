@@ -20,8 +20,8 @@ contract Auction {
     error AuctionNotYetEnded();
     error AuctionEndAlreadyCalled();
 
-    constructor(uint _biddingTime, address payable _beneficiary) {
-        beneficiary = _beneficiary;
+    constructor(uint _biddingTime) payable {
+        beneficiary = payable(msg.sender);
         auctionEndTime = block.timestamp + _biddingTime;
     }
 
