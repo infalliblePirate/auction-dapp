@@ -1,6 +1,6 @@
 const hre = require('../utils/hardhat.bootstrap');
 
-exports.createAuction = async ({ biddingTime }) => {
+async function createAuction({ biddingTime }) {
   try {
     const [deployer] = await hre.ethers.getSigners();
     const beneficiary = deployer.address;
@@ -41,3 +41,6 @@ exports.createAuction = async ({ biddingTime }) => {
   }
 };
 
+module.exports = {
+  createAuction
+}

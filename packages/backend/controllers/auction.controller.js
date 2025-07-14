@@ -1,6 +1,6 @@
 const auctionService = require('../services/auction.service')
 
-exports.createAuction = async (req, res) => {
+async function createAuction(req, res) {
     try {
         const deployedAddr = await auctionService.createAuction(req.body);
         res.status(201).json({ "address": deployedAddr });
@@ -9,3 +9,7 @@ exports.createAuction = async (req, res) => {
         res.status(500).json(error.message);
     }
 } 
+
+module.exports = {
+    createAuction
+}
