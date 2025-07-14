@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-contract Auction {
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+
+contract Auction is Initializable, OwnableUpgradeable {
     address payable public beneficiary;
     uint public auctionEndTime;
 
@@ -20,9 +23,14 @@ contract Auction {
     error AuctionNotYetEnded();
     error AuctionEndAlreadyCalled();
 
-    constructor(uint _biddingTime) payable {
-        beneficiary = payable(msg.sender);
+    function initialize(
+        uint _biddingTime,
+        address _beneficiary,
+        address owner_
+    ) public initializer {
+        __Ownable_init(owner_);
         auctionEndTime = block.timestamp + _biddingTime;
+        beneficiary = payable(_beneficiary);
     }
 
     function bid() public payable {
