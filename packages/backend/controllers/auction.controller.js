@@ -1,12 +1,11 @@
 const auctionService = require('../services/auction.service')
 
-async function createAuction(req, res) {
+async function createAuction(req, res, next) {
     try {
-        const deployedAddr = await auctionService.createAuction(req.body);
-        res.status(201).json({ "address": deployedAddr });
+        const auction = await auctionService.createAuction(req.body);
+        res.status(201).json({ auction });
     } catch (error) {
-        console.error('Auction deployment failed:', error);
-        res.status(500).json(error.message);
+        next(error);
     }
 } 
 
