@@ -1,12 +1,4 @@
-const path = require('path');
-// Hardhat requires the current working directory to contain `hardhat.config.js`
-// This file is in outside the Hardhat project, so we switch 
-// the working directory to the onchain/ folder
-// so that Hardhat can initialize properly
-process.chdir(path.join(__dirname, '../../onchain'));
-process.env.HARDHAT_NETWORK = 'bnb';
-
-const hre = require('hardhat');
+const hre = require('../utils/hardhat.bootstrap');
 
 exports.createAuction = async ({ biddingTime }) => {
   try {
