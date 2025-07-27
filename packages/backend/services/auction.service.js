@@ -10,7 +10,6 @@ async function createAuction({ biddingTime }) {
 
     const auction = await auctionRepository.createAuction(FACTORY_ADDRESS, biddingTime, beneficiary);
 
-    console.log(`Auction created at ${auction.address}`);
     return auction;
 }
 

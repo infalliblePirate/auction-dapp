@@ -7,9 +7,11 @@
   "author": "infalliblePirate",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pino": "^9.7.0"
   },
   "devDependencies": {
-    "hardhat": "^2.25.0"
+    "hardhat": "^2.25.0",
+    "pino-pretty": "^13.0.0"
   }
 }
