@@ -1,12 +1,14 @@
-   import React from 'react';
-   import { ChakraProvider, Button, defaultSystem } from '@chakra-ui/react';
+   import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
+   import { Layout } from './components/layout';
+   import Home from './pages/homePage';
 
    function App() {
      return (
        <ChakraProvider value={defaultSystem}>
-         <div style={{ padding: '20px' }}>
-           <Button colorScheme="teal">Button</Button>
-         </div>
+        <Layout>
+        <Home />
+
+        </Layout>
        </ChakraProvider>
      );
    }
