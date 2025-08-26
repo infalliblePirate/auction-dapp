@@ -1,18 +1,26 @@
-const hre = require('../utils/hardhat.bootstrap');
-const auctionRepository = require('../repositories/auction.repository');
+const logger = require("../logger");
+const { TransactionFailedError, EventNotFoundError } = require("../errors/errors");
+const auctionRepo = require("../repositories/auction.repo");
 
-const FACTORY_ADDRESS = "0xCdE8F1B0933f4b9EeF475b8C0A9FCda0c5C160e2";
+async function createAuction({biddingTime}) {
+    logger.info(biddingTime, "Creating auction via factory");
 
+    const tx = await auctionRepo.createAuctionTx(biddingTime);
+    const receipt = await tx.wait();
 
-async function createAuction({ biddingTime }) {
-    const [deployer] = await hre.ethers.getSigners();
-    const beneficiary = deployer.address;
+    if (receipt.status !== 1) {
+        logger.error({ txHash: tx.hash }, "Auction creation transaction failed");
+        throw new TransactionFailedError();
+    }
 
-    const auction = await auctionRepository.createAuction(FACTORY_ADDRESS, biddingTime, beneficiary);
+    const event = auctionRepo.parseAuctionCreated(receipt);
+    if (!event) {
+        logger.error({ txHash: tx.hash }, "AuctionCreated event not found");
+        throw new EventNotFoundError();
+    }
 
-    return auction;
+    logger.info({ auctionAddress: event.address }, "Auction created successfully");
+    return event;
 }
 
-module.exports = {
-    createAuction
-}
+module.exports = { createAuction };

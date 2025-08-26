@@ -6,7 +6,7 @@ module.exports = {
   solidity: "0.8.28",
   networks: {
     bnb: { // test
-      url: "https://bsc-testnet-rpc.publicnode.com",
+      url: process.env.BNB_TEST_URL,
       chainId: 97,
       accounts: {
         mnemonic: process.env.MNEMONIC
