@@ -1,6 +1,6 @@
 const logger = require("../logger");
 const { TransactionFailedError, EventNotFoundError } = require("../errors/errors");
-const auctionRepo = require("../repositories/auction.repo");
+const auctionRepo = require("../repositories/blockchain/auction.repo");
 
 async function createAuction({biddingTime}) {
     logger.info(biddingTime, "Creating auction via factory");
