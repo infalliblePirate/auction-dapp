@@ -21,7 +21,7 @@ function parseAuctionCreated(receipt) {
             biddingTime: Number(parsed.args.biddingTime),
         };
     } catch (err) {
-        logger.error("Failed to parse AuctionCreated event:", err);
+        logger.error({ err }, "Failed to parse AuctionCreated event:");
         return null;
     }
 }

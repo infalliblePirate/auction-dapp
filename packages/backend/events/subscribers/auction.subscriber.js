@@ -8,7 +8,7 @@ export function registerAuctionSubscriber() {
             await auctionRepo.save(auction);
             logger.info("Auction saved to DB:", auction.address);
         } catch (err) {
-            logger.error("Failed to save auction:", err);
+            logger.error({ err }, "Failed to save auction");
         }
     });
     logger.info("Auction subscriber registered");

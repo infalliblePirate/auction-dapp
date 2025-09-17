@@ -3,8 +3,6 @@ import { TransactionFailedError, EventNotFoundError } from "../errors/errors.js"
 import * as auctionRepo from "../repositories/auction.repo.js";
 
 async function createAuction({biddingTime}) {
-    logger.info(biddingTime, "Creating auction via factory");
-
     const tx = await auctionRepo.createAuctionTx(biddingTime);
     const receipt = await tx.wait();
 
