@@ -1,19 +1,8 @@
-import { ethers } from "ethers";
-import dotenv from "dotenv";
-import fs from "fs";
-import path from "path";
+import 'dotenv/config';
+import { ethers } from 'ethers';
 
-dotenv.config();
-
-const factoryArtifactPath = path.resolve(
-  "./packages/onchain/artifacts/contracts/AuctionFactory.sol/AuctionFactory.json"
-);
-const auctionArtifactPath = path.resolve(
-  "./packages/onchain/artifacts/contracts/Auction.sol/Auction.json"
-);
-
-const factoryArtifact = JSON.parse(fs.readFileSync(factoryArtifactPath, "utf-8"));
-const auctionArtifact = JSON.parse(fs.readFileSync(auctionArtifactPath, "utf-8"));
+import factoryArtifact from '../../onchain/artifacts/contracts/AuctionFactory.sol/AuctionFactory.json' with { type: 'json' };
+import auctionArtifact from '../../onchain/artifacts/contracts/Auction.sol/Auction.json' with { type: 'json' };
 
 const factoryAddress = process.env.FACTORY_ADDRESS;
 

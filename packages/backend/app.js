@@ -1,21 +1,17 @@
-require('dotenv').config();
-const express = require('express');
+import 'dotenv/config';
+import express from 'express';
 
-const routes = require('./routes/routes');
-const errorHandler = require('./middleware/errorHandler');
-const { registerEventSystem } = require('./events/eventSystem');
-const logger = require('./logger');
+import { router } from './routes/routes.js';
+import { errorHandler } from './middleware/errorHandler.js';
+import { registerEventSystem } from './events/eventSystem.js';
+import { logger } from './logger.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use('/api', routes);
+app.use('/api', router);
 app.use(errorHandler); // error handler after routes
 
 registerEventSystem();
-
-
-
-
 app.listen(port, () => logger.info(`Server running at http://localhost:${port}`));

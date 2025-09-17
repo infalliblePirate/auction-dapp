@@ -5,30 +5,12 @@
     "packages/*"
   ],
   "scripts": {
-    "start:backend": "node packages/backend/app.js"
+    "backend": "node packages/backend/app.js",
+    "frontend": "cd packages/frontend && npm run dev"
   },
   "author": "infalliblePirate",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^17.1.0",
-    "express": "^5.1.0",
-    "mongoose": "^8.18.1"
-  },
-  "version": "1.0.0",
-  "description": "Auction",
-  "main": "index.js",
-  "devDependencies": {
-    "@vitejs/plugin-react": "^5.0.2",
-    "mocha": "^10.8.2",
-    "vite": "^7.1.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/infalliblePirate/auction.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/infalliblePirate/auction/issues"
-  },
-  "homepage": "https://github.com/infalliblePirate/auction#readme"
+    "dotenv": "^17.1.0"
+  }
 }

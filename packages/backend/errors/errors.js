@@ -19,4 +19,4 @@ class EventNotFoundError extends BaseError {
   }
 }
 
-module.exports = { TransactionFailedError, EventNotFoundError, BaseError };
+export { TransactionFailedError, EventNotFoundError, BaseError };

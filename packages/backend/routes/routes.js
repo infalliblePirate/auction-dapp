@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
+import * as auctionController from '../controllers/auction.controller.js';
 const router = express.Router();
-const auctionController = require('../controllers/auction.controller')
 
 router.post('/auction', auctionController.createAuction)
 
-module.exports = router;
+export { router };

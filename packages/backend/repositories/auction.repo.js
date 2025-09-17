@@ -1,5 +1,5 @@
-const logger = require("../logger");
-const { factory, signer } = require("../config/blockchain");
+import "../logger.js";
+import { factory, signer } from "../config/blockchain.js";
 
 async function createAuctionTx(biddingTime) {
     return factory.createAuction(biddingTime, await signer.getAddress());
@@ -27,4 +27,4 @@ function parseAuctionCreated(receipt) {
 }
 
 
-module.exports = { createAuctionTx, parseAuctionCreated };
+export { createAuctionTx, parseAuctionCreated };

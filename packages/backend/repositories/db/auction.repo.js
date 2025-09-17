@@ -1,4 +1,4 @@
-const Auction = require("../../models/auction.model");
+import * as Auction from "../../models/auction.model.js";
 
 async function save(auctionData) {
   return Auction.create(auctionData);
@@ -16,7 +16,7 @@ async function markEnded(address) {
   return Auction.updateOne({ address }, { ended: true });
 }
 
-module.exports = {
+export {
   save,
   findAllActive,
   findByAddress,

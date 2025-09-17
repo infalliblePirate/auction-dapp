@@ -1,6 +1,6 @@
 import { factoryWs } from "../../config/blockchain.js";
 import eventBus from "../core/eventBus.js";
-import logger from "../../logger.js";
+import { logger } from "../../logger.js";
 
 export function registerAuctionListener() {
   factoryWs.on("AuctionCreated", (auctionAddress, beneficiary, biddingTime) => {

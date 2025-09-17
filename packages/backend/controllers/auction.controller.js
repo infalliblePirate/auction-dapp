@@ -1,4 +1,4 @@
-const auctionService = require('../services/auction.service')
+import * as auctionService from '../services/auction.service.js';
 
 async function createAuction(req, res, next) {
     try {
@@ -9,6 +9,4 @@ async function createAuction(req, res, next) {
     }
 } 
 
-module.exports = {
-    createAuction
-}
+export { createAuction }

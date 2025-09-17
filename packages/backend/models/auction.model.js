@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const auctionSchema = new mongoose.Schema({
     address: { type: String, required: true },
@@ -7,4 +7,4 @@ const auctionSchema = new mongoose.Schema({
 });
 
 const Auction = mongoose.model('Auction', auctionSchema);
-module.exports = Auction;
+export { Auction };

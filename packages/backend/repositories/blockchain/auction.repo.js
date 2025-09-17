@@ -1,5 +1,5 @@
-const logger = require("../../logger");
-const { factory, signer } = require("../../config/blockchain");
+import "../../logger";
+import { factory, signer } from "../../config/blockchain";
 
 async function createAuctionTx(biddingTime) {
     return factory.createAuction(biddingTime, await signer.getAddress());

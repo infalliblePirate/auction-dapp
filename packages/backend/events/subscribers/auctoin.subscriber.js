@@ -1,6 +1,6 @@
 import eventBus from "../core/eventBus.js";
-import auctionRepo from "../../repositories/db/auction.repo.js";
-import logger from "../../logger.js";
+import * as auctionRepo from "../../repositories/db/auction.repo.js";
+import { logger } from "../../logger.js";
 
 export function registerAuctionSubscriber() {
     eventBus.on("AuctionCreated", async (auction) => {
